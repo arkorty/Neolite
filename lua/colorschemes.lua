@@ -1,4 +1,4 @@
-local colorscheme = "onedark"
+local colorscheme = "gruvbox"
 
 if colorscheme == "onedark" then
 	-- Onedark Default Configuration
@@ -96,7 +96,7 @@ if colorscheme == "catppuccin" then
 	})
 
 	-- Load Catppuccin
-	catppuccin.load()
+	vim.cmd.colorscheme("catppuccin")
 end
 
 if colorscheme == "gruvbox" then
@@ -126,5 +126,6 @@ if colorscheme == "gruvbox" then
 	})
 
 	-- Load Gruvbox
-	gruvbox.load()
+	vim.o.background = "dark" -- or "light" for light mode
+	vim.cmd([[colorscheme gruvbox]])
 end

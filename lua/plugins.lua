@@ -35,7 +35,12 @@ packer.startup(function(use)
 	use("williamboman/mason-lspconfig.nvim")
 	use("neovim/nvim-lspconfig")
 
+	-- Formatting
 	use("jose-elias-alvarez/null-ls.nvim")
+
+	-- Snippets
+	use("L3MON4D3/LuaSnip") --snippet engine
+	use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
 
 	-- Completions
 	use("hrsh7th/nvim-cmp") -- The completion plugin
