@@ -19,7 +19,12 @@ mason_lspconfig.setup({
     ensure_installed = { "lua_ls", "rust_analyzer", "clangd" },
 })
 
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
+local cnl_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+if not cnl_ok then
+    return
+end
+
+local capabilities = cmp_nvim_lsp.default_capabilities()
 
 mason_lspconfig.setup_handlers({
     function(server)

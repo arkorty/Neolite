@@ -42,7 +42,7 @@ if colorscheme == "onedark" then
     })
 
     -- Load One Dark
-    require("onedark").load()
+    onedark.load()
 end
 
 if colorscheme == "catppuccin" then
@@ -96,7 +96,7 @@ if colorscheme == "catppuccin" then
     })
 
     -- Load Catppuccin
-    require("catppuccin").load()
+    catppuccin.load()
 end
 
 if colorscheme == "gruvbox" then
@@ -126,5 +126,5 @@ if colorscheme == "gruvbox" then
     })
 
     -- Load Gruvbox
-    require("gruvbox").load()
+    gruvbox.load()
 end

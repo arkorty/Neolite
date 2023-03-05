@@ -68,8 +68,11 @@ packer.startup(function(use)
     use({
         "nvim-treesitter/nvim-treesitter",
         run = function()
-            local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
-            ts_update()
+            local ntsi_ok, nvim_treesitter_install = pcall(require, "nvim-treesitter.install")
+            if ntsi_ok then
+                local ts_update = nvim_treesitter_install.install.update({ with_sync = true })
+                ts_update()
+            end
         end,
     })
 
