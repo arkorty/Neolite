@@ -36,10 +36,10 @@ if telescope_status_ok then
 end
 
 -- Better tabs
-bind("n", "<Leader>t", ":tabnew<CR>", opts)
-bind("n", "<Leader>c", ":tabclose<CR>", opts)
-bind("n", "<S-k>", ":tabnext<CR>", opts)
-bind("n", "<S-j>", ":tabprev<CR>", opts)
+bind("n", "<S-t>", ":tabnew<CR>", opts)
+bind("n", "<S-c>", ":tabclose<CR>", opts)
+bind("n", "<S-m>", ":tabprev<CR>", opts)
+bind("n", "<S-n>", ":tabnext<CR>", opts)
 
 -- Better window navigation
 bind("n", "<C-Left>", "<C-w>h", opts)
