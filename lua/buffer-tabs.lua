@@ -3,11 +3,11 @@ vim.opt.termguicolors = true
 
 local ok, bufferline = pcall(require, "bufferline")
 if not ok then
-    return
+	return
 end
 
 bufferline.setup({
-    options = {
-        mode = "tabs", -- set to "buffers" to only show buffers instead
-    },
+	options = {
+		mode = "tabs", -- set to "buffers" to only show buffers instead
+	},
 })
