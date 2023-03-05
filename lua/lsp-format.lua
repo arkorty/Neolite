@@ -3,16 +3,16 @@ if not ok then
 	return
 end
 
-local formatting = null_ls.builtins.formatting
-
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-null_ls.setup({
+require("null-ls").setup({
 	sources = {
-		formatting.rustfmt,
-		formatting.stylua,
-		formatting.black,
-		formatting.prettier,
-	}, -- you can reuse a shared lspconfig on_attach callback here
+		null_ls.builtins.formatting.rustfmt,
+		null_ls.builtins.formatting.stylua,
+		null_ls.builtins.formatting.black,
+		null_ls.builtins.formatting.prettier,
+		null_ls.builtins.formatting.clang_format,
+	},
+	-- you can reuse a shared lspconfig on_attach callback here
 	on_attach = function(client, bufnr)
 		if client.supports_method("textDocument/formatting") then
 			vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
@@ -20,8 +20,12 @@ null_ls.setup({
 				group = augroup,
 				buffer = bufnr,
 				callback = function()
-					-- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
-					vim.lsp.buf.format({ bufnr = bufnr })
+					vim.lsp.buf.format({
+						bufnr = bufnr,
+						filter = function()
+							return client.name == "null-ls"
+						end,
+					})
 				end,
 			})
 		end

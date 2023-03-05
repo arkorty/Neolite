@@ -18,7 +18,7 @@ vim.g.maplocalleader = ";"
 --   Command Mode      = 'c',
 
 -- Normal mode --
--- Basic functions
+-- Basic commands
 bind("n", "<Leader>w", ":w<CR>", opts)
 bind("n", "<Leader>e", ":q<CR>", opts)
 bind("n", "<Leader>q", ":qa<CR>", opts)
@@ -52,22 +52,3 @@ bind("n", "<C-k>", ":resize -2<CR>", opts)
 bind("n", "<C-j>", ":resize +2<CR>", opts)
 bind("n", "<C-l>", ":vertical resize -2<CR>", opts)
 bind("n", "<C-h>", ":vertical resize +2<CR>", opts)
-
--- Navigate tabs
-bind("n", "<S-h>", ":tabp<CR>", opts)
-bind("n", "<S-l>", ":tabn<CR>", opts)
-
--- Visual --
--- Stay in indent mode
-bind("v", "<", "<gv", opts)
-bind("v", ">", ">gv", opts)
-
--- Move text up and down
-bind("v", "<S-k>", ":m .+1<CR>==", opts)
-bind("v", "<S-j>", ":m .-2<CR>==", opts)
-bind("v", "p", '"_dP', opts)
-
--- Visual Block --
--- Move text up and down
-bind("x", "J", ":move '>+1<CR>gv-gv", opts)
-bind("x", "K", ":move '<-2<CR>gv-gv", opts)

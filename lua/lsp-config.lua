@@ -28,7 +28,9 @@ local capabilities = cmp_nvim_lsp.default_capabilities()
 
 mason_lspconfig.setup_handlers({
 	function(server)
-		lspconfig[server].setup({ capabilities = capabilities })
+		lspconfig[server].setup({
+			capabilities = capabilities,
+		})
 		lspconfig.lua_ls.setup({
 			capabilities = capabilities,
 			settings = {
