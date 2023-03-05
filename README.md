@@ -12,6 +12,6 @@ Neolite is a fast and lightweight configuration of Neovim.
 
 - Run the install script `./install.sh`
 
-- Close Neovim after Packer has installed all the required plugins
+- Quit Neovim after Packer has installed all the required plugins
 
 - Run Neovim with Mason command `nvim +Mason`
