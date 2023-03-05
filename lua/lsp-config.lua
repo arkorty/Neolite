@@ -43,10 +43,10 @@ mason_lspconfig.setup_handlers({
 			},
 		})
 	end,
-	["rust_analyzer"] = function()
-		local rt_ok, rust_tools = pcall(require, "rust-tools")
-		if rt_ok then
-			rust_tools.setup({})
-		end
-	end,
+	--["rust_analyzer"] = function()
+	--	local rt_ok, rust_tools = pcall(require, "rust-tools")
+	--	if rt_ok then
+	--		rust_tools.setup({})
+	--	end
+	--end,
 })
