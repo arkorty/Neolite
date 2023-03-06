@@ -16,7 +16,8 @@ nvim_tree.setup({
 	update_cwd = true,
 	renderer = {
 		group_empty = true,
-		root_folder_label = ":~:s?$?/..?",
+		root_folder_label = ":t",
+		indent_width = 2,
 	},
 	filters = {
 		dotfiles = true,
@@ -33,7 +34,7 @@ nvim_tree.setup({
 	},
 	update_focused_file = {
 		enable = true,
-		update_cwd = true,
+		update_cwd = false,
 		ignore_list = {},
 	},
 })
