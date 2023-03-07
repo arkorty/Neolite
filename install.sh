@@ -10,4 +10,4 @@ cp -r neolite ~/.config
 mv ~/.config/neolite ~/.config/nvim
 
 nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
-nvim -c "TSUpdate" -c "Mason"
+nvim +TSUpdate +Mason
