@@ -6,8 +6,8 @@
 [ -d "~/.config/nvim" ] && mv ~/.config/nvim ~/.config/nvim-$(date "+%F-%T").bak
 
 cd ..
-cp neolite ~/.config
+cp -r neolite ~/.config
 mv ~/.config/neolite ~/.config/nvim
 
 nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
-nvim -c "MasonInstall rustfmt stylua prettier black" -c "TSUpdate" -c "Mason"
+nvim -c "TSUpdate" -c "Mason"
