@@ -1,7 +1,5 @@
 ![neolite.png](blob/neolite.png)
 
-# Neolite
-
 ## About
 
 Neolite is a fast and lightweight configuration of Neovim.
