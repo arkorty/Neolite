@@ -4,6 +4,9 @@ if not ok then
 end
 
 packer.startup(function(use)
+	-- Nord colorscheme
+	use("shaunsingh/nord.nvim")
+
 	-- Onedark colorscheme
 	use("navarasu/onedark.nvim")
 
