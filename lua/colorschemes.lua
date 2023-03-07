@@ -131,5 +131,12 @@ if colorscheme == "gruvbox" then
 end
 
 if colorscheme == "nord" then
+	local ok, nord = pcall(require, "nord")
+	if not ok then
+		return
+	end
+	
+	nord.setup({})
+	
 	vim.cmd([[colorscheme nord]])
 end
