@@ -1,4 +1,4 @@
-local colorscheme = "gruvbox"
+local colorscheme = "nord"
 
 if colorscheme == "onedark" then
 	-- Onedark Default Configuration
@@ -128,4 +128,8 @@ if colorscheme == "gruvbox" then
 	-- Load Gruvbox
 	vim.o.background = "dark" -- or "light" for light mode
 	vim.cmd([[colorscheme gruvbox]])
+end
+
+if colorscheme == "nord" then
+	vim.cmd([[colorscheme nord]])
 end
