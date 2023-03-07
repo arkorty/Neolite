@@ -13,9 +13,7 @@ if not mason_lspconfig_status_ok then
     return
 end
 
-mason.setup({
-    ensure_installed = { "stylya", "rustfmt", "clang-format", "black", "prettier" },
-})
+mason.setup({})
 
 mason_lspconfig.setup({
     ensure_installed = { "lua_ls", "rust_analyzer", "clangd", "pyright", "marksman" },
