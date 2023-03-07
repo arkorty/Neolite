@@ -10,4 +10,4 @@ cp -r neolite ~/.config
 mv ~/.config/neolite ~/.config/nvim
 
 nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
-nvim +TSUpdate +Mason
+nvim +TSUpdate "+MasonInstall stylua rustfmt prettier black clang-format"
