@@ -136,7 +136,5 @@ if colorscheme == "nord" then
 		return
 	end
 	
-	nord.setup({})
-	
 	vim.cmd([[colorscheme nord]])
 end
