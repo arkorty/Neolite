@@ -7,9 +7,7 @@ Neolite is a fast and lightweight configuration of Neovim.
 ## Installation
 
 ```
-git clone https://github.com/arkorty/neolite.git
-cd neolite
-./install.sh
+git clone https://github.com/arkorty/neolite.git && cd neolite && ./install.sh
 ```
 
 ## Screenshot
