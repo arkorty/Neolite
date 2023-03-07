@@ -1,12 +1,13 @@
 #!/bin/bash
 
-git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+[ ! -d "~/.local/share/nvim/site/pack/packer" ] && git clone --depth 1 https://github.com/wbthomason/packer.nvim\
  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
-[ -d "~/.config/nvim" ] && mv ~/.config/nvim ~/.config/nvim.bak
+[ -d "~/.config/nvim" ] && mv ~/.config/nvim ~/.config/nvim-$(date "+%F-%T").bak
 
-[ ! -d "~/.config/nvim" ] && mkdir -p ~/.config/nvim
+cd ..
+cp neolite ~/.config
+mv ~/.config/neolite ~/.config/nvim
 
-cp -r init.lua lua ~/.config/nvim
-
-nvim +PackerSync
+nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+nvim -c "MasonInstall rustfmt stylua prettier black" -c "TSUpdate" -c "Mason"
