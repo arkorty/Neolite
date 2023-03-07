@@ -20,12 +20,10 @@ nvim_tree.setup({
 		indent_width = 2,
 	},
 	filters = {
-		dotfiles = true,
-	},
-	view = {
-		side = "left",
-		width = 30,
-		hide_root_folder = false,
+		dotfiles = false,
+		git_clean = false,
+		no_buffer = false,
+		exclude = {},
 	},
 	actions = {
 		open_file = {
@@ -36,6 +34,13 @@ nvim_tree.setup({
 		enable = true,
 		update_cwd = false,
 		ignore_list = {},
+	},
+	git = {
+		enable = true,
+		ignore = false,
+		show_on_dirs = true,
+		show_on_open_dirs = true,
+		timeout = 200,
 	},
 })
 
