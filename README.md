@@ -12,7 +12,7 @@ curl -sLf https://raw.githubusercontent.com/arkorty/neolite/master/install.sh | 
 
 ## Screenshots
 
-### File Tree
+### File Tree & Active Buffer
 
 ![file-tree.png](blob/file-tree.png)
 
