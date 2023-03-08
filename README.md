@@ -7,7 +7,7 @@ Neolite is a fast and lightweight configuration of Neovim.
 ## Quick Start
 
 ```
-curl -sLf https://raw.githubusercontent.com/arkorty/neolite/master/install | bash
+curl -sLf https://raw.githubusercontent.com/arkorty/neolite/master/install.sh | bash
 ```
 
 ## Screenshots
