@@ -1,6 +1,6 @@
 #!/bin/bash
 
-[ -d "$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim" ] && rm -rf $HOME/.local/share/nvim/site/pack/packer/start/packer.nvim
+[ -d "$HOME/.local/share/nvim/site/pack/packer" ] && rm -rf $HOME/.local/share/nvim/site/pack/packer
 git clone --depth 1 https://github.com/wbthomason/packer.nvim $HOME/.local/share/nvim/site/pack/packer/start/packer.nvim
 
 [ -d "$HOME/.config/nvim" ] && mv $HOME/.config/nvim $HOME/.config/nvim-(date "+%F-%T").bak
