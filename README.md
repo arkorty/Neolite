@@ -1,20 +1,20 @@
 ![neolite.png](blob/neolite.png)
 
-## About
+# About
 
 Neolite is a fast and lightweight configuration of Neovim.
 
-## Depedencies
+# Depedencies
 - [cURL](https://github.com/curl/curl)
 - [Neovim](https://github.com/neovim/neovim)
 
-## Quick Start
+# Quick Start
 
 ```
 curl -sLf https://raw.githubusercontent.com/arkorty/neolite/master/install.sh | bash
 ```
 
-## Screenshots
+# Screenshots
 
 ### File Tree & Active Buffer
 
@@ -32,10 +32,10 @@ curl -sLf https://raw.githubusercontent.com/arkorty/neolite/master/install.sh | 
 
 ![live-grep.png](blob/live-grep.png)
 
-## Optional
+# Optional
 
 - [Lazygit](https://github.com/jesseduffield/lazygit)
 
-## License
+# License
 
 - [MIT License](LICENSE)
