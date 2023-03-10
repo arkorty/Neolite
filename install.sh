@@ -1,21 +1,19 @@
 #!/bin/bash
 
-NPMDP=""
 if command -v nvim >/dev/null 2>&1 ; then
-    NPMDP="pyright prettier"
+    :
 else
     echo "No installation of Neovim was found"
     echo "Quitting now..."
     exit 127
 fi
 
-
+NPMDP=""
 if command -v npm >/dev/null 2>&1 ; then
-    :
+    NPMDP="pyright prettier"
 else
     echo "No installation of npm was found"
-    echo "Quitting now..."
-    exit 127
+    echo "Some lsp packages won't automatically be installed"
 fi
 
 
