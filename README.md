@@ -7,7 +7,7 @@ Neolite is a fast and lightweight configuration of Neovim.
 # Depedencies
 
 - [cURL](https://github.com/curl/curl)
-- [git](https://github.com/git/git)
+- [Git](https://github.com/git/git)
 - [Neovim](https://github.com/neovim/neovim)
 
 # Optional
