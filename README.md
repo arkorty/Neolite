@@ -5,9 +5,15 @@
 Neolite is a fast and lightweight configuration of Neovim.
 
 # Depedencies
-- [npm](https://github.com/npm/cli)
 - [cURL](https://github.com/curl/curl)
+- [git](https://github.com/git/git)
 - [Neovim](https://github.com/neovim/neovim)
+
+# Optional
+
+- [pip](https://github.com/pypa/pip)
+- [npm](https://github.com/npm/cli)
+- [Lazygit](https://github.com/jesseduffield/lazygit)
 
 # Quick Start
 
@@ -32,10 +38,6 @@ curl -sLf https://raw.githubusercontent.com/arkorty/neolite/master/install.sh | 
 ### Live Grep
 
 ![live-grep.png](blob/live-grep.png)
-
-# Optional
-
-- [Lazygit](https://github.com/jesseduffield/lazygit)
 
 # License
 
