@@ -32,6 +32,9 @@ cmp.setup({
 	},
 	mapping = {
 		["<CR>"] = cmp.mapping.confirm({ select = true }),
+		["<C-k>"] = cmp.mapping.scroll_docs(-4),
+		["<C-j>"] = cmp.mapping.scroll_docs(4),
+		["<C-e>"] = cmp.mapping.abort(),
 		["<Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_next_item()
