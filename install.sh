@@ -1,3 +1,11 @@
+# Project: Neolite
+# Script:  install.sh
+# License: MIT
+# Author:  Arkaprabha Chakraborty
+# Edited:  11-03-23
+#
+# Copyright (C) 2023 Arkaprabha Chakraborty
+
 #!/bin/bash
 
 if command -v nvim >/dev/null 2>&1 ; then
@@ -13,7 +21,7 @@ if command -v npm >/dev/null 2>&1 ; then
     NPMDP="pyright prettier"
 else
     echo "No installation of npm was found"
-    echo "Some lsp packages won't automatically be installed"
+    echo "Some lsp packages won"t be installed"
 fi
 
 
@@ -24,5 +32,5 @@ git clone --depth 1 https://github.com/wbthomason/packer.nvim $HOME/.local/share
 
 mkdir -p $HOME/.config/nvim && git clone --depth 1 https://github.com/arkorty/neolite.git $HOME/.config/nvim
 
-nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+nvim --headless -c "autocmd User PackerComplete quitall" -c "PackerSync"
 nvim +TSUpdate "+MasonInstall stylua rustfmt black clang-format $NPMDP"
