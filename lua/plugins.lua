@@ -4,6 +4,9 @@ if not ok then
 end
 
 packer.startup(function(use)
+	-- Transparency
+	use("xiyaowong/nvim-transparent")
+
 	-- Base16 colorscheme
 	use("RRethy/nvim-base16")
 
