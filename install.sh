@@ -21,7 +21,7 @@ if command -v npm >/dev/null 2>&1 ; then
     NPMDP="pyright prettier"
 else
     echo "No installation of npm was found"
-    echo "Some lsp packages won"t be installed"
+    echo "Some lsp packages will not be installed automatically"
 fi
 
 
