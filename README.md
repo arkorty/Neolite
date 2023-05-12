@@ -2,7 +2,7 @@
 
 # About
 
-Neolite is a fast and lightweight configuration of Neovim. For the uninitiated, Neovim is a terminal based text editor which can be extended using a scripting language like [Lua](https://www.lua.org/about.html). Neovim out-of-the-box doesn't come with a lot of features, but it is highly extensible. It also comes with built-in LSP support and has been in use since forever. So you don't have to worry about changing your workflow anytime soon.
+Neolite is a fast and lightweight configuration of Neovim. For the uninitiated, Neovim is a terminal based text editor which can be extended using the [Lua](https://www.lua.org/about.html) scripting language. Neovim out-of-the-box doesn't come with a lot of features, but it is highly extensible. It also comes with built-in LSP support and has been in use since forever. So you don't have to worry about changing your workflow anytime soon.
 # Dependencies
 
 - [cURL](https://github.com/curl/curl)
