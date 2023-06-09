@@ -18,11 +18,6 @@ vim.g.maplocalleader = ";"
 --   Command Mode      = 'c',
 
 -- Normal mode --
--- Basic commands
-bind("n", "<Leader>w", ":w<CR>", opts)
-bind("n", "<Leader>e", ":q<CR>", opts)
-bind("n", "<Leader>q", ":qa<CR>", opts)
-
 -- Nvim tree
 bind("n", "<C-f>", ":NvimTreeToggle<CR>", opts)
 

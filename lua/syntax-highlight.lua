@@ -5,7 +5,7 @@ end
 
 nvim_treesitter.setup({
 	-- A list of parser names, or "all" (the four listed parsers should always be installed)
-	ensure_installed = { "c", "help", "lua", "vim", "cpp", "rust" },
+	ensure_installed = { "c", "lua", "vim", "cpp", "rust" },
 	-- Install parsers synchronously (only applied to `ensure_installed`)
 	sync_install = false,
 	-- Automatically install missing parsers when entering buffer

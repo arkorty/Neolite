@@ -1,31 +1,4 @@
-local colorscheme = "base16-black-metal" -- Set colorscheme
-
-if colorscheme == "base16-black-metal" then
-	local ok, base16 = pcall(require, "base16-colorscheme")
-	if not ok then
-		return
-	end
-	base16.setup({
-		--base00 = "#000000",
-		base00 = "#171717",
-		base01 = "#121212",
-		base02 = "#222222",
-		--base03 = "#333333",
-		base03 = "#494949",
-		base04 = "#999999",
-		base05 = "#c1c1c1",
-		base06 = "#999999",
-		base07 = "#c1c1c1",
-		base08 = "#5f8787",
-		base09 = "#aaaaaa",
-		base0A = "#a06666",
-		base0B = "#dd9999",
-		base0C = "#aaaaaa",
-		base0D = "#888888",
-		base0E = "#999999",
-		base0F = "#444444",
-	})
-end
+local colorscheme = "gruvbox" -- Set colorscheme { gruvbox, onedark, catppuccin, nord, dracula }
 
 if colorscheme == "onedark" then
 	-- Onedark Default Configuration
@@ -138,7 +111,12 @@ if colorscheme == "gruvbox" then
 		undercurl = true,
 		underline = true,
 		bold = true,
-		italic = true,
+		italic = {
+			strings = true,
+			comments = true,
+			operators = false,
+			folds = true,
+		},
 		strikethrough = true,
 		invert_selection = false,
 		invert_signs = false,
@@ -164,4 +142,65 @@ if colorscheme == "nord" then
 	end
 
 	vim.cmd([[colorscheme nord]])
+end
+
+if colorscheme == "everforest" then
+	local ok, everforest = pcall(require, "nord")
+	if not ok then
+		return
+	end
+
+	vim.cmd([[colorscheme everforest]])
+end
+
+if colorscheme == "dracula" then
+	local ok, dracula = pcall(require, "dracula")
+	if not ok then
+		return
+	end
+
+	dracula.setup({
+		-- customize dracula color palette
+		colors = {
+			bg = "#282A36",
+			fg = "#F8F8F2",
+			selection = "#44475A",
+			comment = "#6272A4",
+			red = "#FF5555",
+			orange = "#FFB86C",
+			yellow = "#F1FA8C",
+			green = "#50fa7b",
+			purple = "#BD93F9",
+			cyan = "#8BE9FD",
+			pink = "#FF79C6",
+			bright_red = "#FF6E6E",
+			bright_green = "#69FF94",
+			bright_yellow = "#FFFFA5",
+			bright_blue = "#D6ACFF",
+			bright_magenta = "#FF92DF",
+			bright_cyan = "#A4FFFF",
+			bright_white = "#FFFFFF",
+			menu = "#21222C",
+			visual = "#3E4452",
+			gutter_fg = "#4B5263",
+			nontext = "#3B4048",
+		},
+		-- show the '~' characters after the end of buffers
+		show_end_of_buffer = true, -- default false
+		-- use transparent background
+		transparent_bg = true, -- default false
+		-- set custom lualine background color
+		lualine_bg_color = "#44475a", -- default nil
+		-- set italic comment
+		italic_comment = true, -- default false
+		-- overrides the default highlights see `:h synIDattr`
+		overrides = {
+			-- Examples
+			-- NonText = { fg = dracula.colors().white }, -- set NonText fg to white
+			-- NvimTreeIndentMarker = { link = "NonText" }, -- link to NonText highlight
+			-- Nothing = {} -- clear highlight of Nothing
+		},
+	})
+
+	vim.cmd([[colorscheme dracula]])
 end

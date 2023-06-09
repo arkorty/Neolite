@@ -1,64 +1,76 @@
 local ok, packer = pcall(require, "packer")
 if not ok then
-    return
+	return
 end
 
 packer.startup(function(use)
-    -- Base16 colorscheme
-    use("RRethy/nvim-base16")
+    -- Visible indentation
+    use("lukas-reineke/indent-blankline.nvim")
 
-    -- Nord colorscheme
-    use("shaunsingh/nord.nvim")
+	-- Git integration
+	use("lewis6991/gitsigns.nvim")
 
-    -- Onedark colorscheme
-    use("navarasu/onedark.nvim")
+    -- Transparency enabler
+	use("xiyaowong/transparent.nvim")
 
-    -- Gruvbox colorscheme
-    use("ellisonleao/gruvbox.nvim")
+	-- Nord colorscheme
+	use("shaunsingh/nord.nvim")
 
-    -- Catppuccin colorscheme
-    use({ "catppuccin/nvim", as = "catppuccin" })
+	-- Dracula colorscheme
+	use("Mofiqul/dracula.nvim")
 
-    -- Plugin manager
-    use("wbthomason/packer.nvim")
+	-- Onedark colorscheme
+	use("navarasu/onedark.nvim")
 
-    -- Terminal
-    use({ "akinsho/toggleterm.nvim", tag = "*" })
+	-- Gruvbox colorscheme
+	use("ellisonleao/gruvbox.nvim")
 
-    -- File tree
-    use({ "nvim-tree/nvim-tree.lua", requires = { "nvim-tree/nvim-web-devicons" }, tag = "nightly" })
+	--Everforest colorscheme
+	use("sainnhe/everforest")
 
-    -- Statusline
-    use({ "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons", opt = true } })
+	-- Catppuccin colorscheme
+	use({ "catppuccin/nvim", as = "catppuccin" })
 
-    -- Buffer tabs
-    use({ "akinsho/bufferline.nvim", tag = "v3.*", requires = "nvim-tree/nvim-web-devicons" })
+	-- Plugin manager
+	use("wbthomason/packer.nvim")
 
-    use({ "nvim-telescope/telescope.nvim", tag = "0.1.x", requires = { { "nvim-lua/plenary.nvim" } } })
+	-- Terminal
+	use({ "akinsho/toggleterm.nvim", tag = "*" })
 
-    -- LSP manager
-    use("williamboman/mason.nvim")
-    use("williamboman/mason-lspconfig.nvim")
-    use("neovim/nvim-lspconfig")
+	-- File tree
+	use({ "nvim-tree/nvim-tree.lua", requires = { "nvim-tree/nvim-web-devicons" }, tag = "nightly" })
 
-    -- Formatting
-    use("jose-elias-alvarez/null-ls.nvim")
+	-- Statusline
+	use({ "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons", opt = true } })
 
-    -- Snippets
-    use("L3MON4D3/LuaSnip")          --snippet engine
-    use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
+	-- Buffer tabs
+	use({ "akinsho/bufferline.nvim", tag = "v3.*", requires = "nvim-tree/nvim-web-devicons" })
 
-    -- Completions
-    use("hrsh7th/nvim-cmp")      -- The completion plugin
-    use("hrsh7th/cmp-buffer")    -- buffer completions
-    use("hrsh7th/cmp-path")      -- path completions
-    use("saadparwaiz1/cmp_luasnip") -- snippet completions
-    use("onsails/lspkind.nvim")
-    use("hrsh7th/cmp-nvim-lsp")
+	use({ "nvim-telescope/telescope.nvim", tag = "0.1.x", requires = { { "nvim-lua/plenary.nvim" } } })
 
-    -- Syntax highlighting
-    use("nvim-treesitter/nvim-treesitter")
+	-- LSP manager
+	use("williamboman/mason.nvim")
+	use("williamboman/mason-lspconfig.nvim")
+	use("neovim/nvim-lspconfig")
 
-    -- Rust tools
-    --use("simrat39/rust-tools.nvim")
+	-- Formatting
+	use("jose-elias-alvarez/null-ls.nvim")
+
+	-- Snippets
+	use("L3MON4D3/LuaSnip") --snippet engine
+	use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
+
+	-- Completions
+	use("hrsh7th/nvim-cmp") -- The completion plugin
+	use("hrsh7th/cmp-buffer") -- buffer completions
+	use("hrsh7th/cmp-path") -- path completions
+	use("saadparwaiz1/cmp_luasnip") -- snippet completions
+	use("onsails/lspkind.nvim")
+	use("hrsh7th/cmp-nvim-lsp")
+
+	-- Syntax highlighting
+	use("nvim-treesitter/nvim-treesitter")
+
+	-- Rust tools
+	use("simrat39/rust-tools.nvim")
 end)
