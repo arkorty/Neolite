@@ -1,4 +1,4 @@
-local colorscheme = "gruvbox" -- Set colorscheme { gruvbox, onedark, catppuccin, nord, dracula }
+local colorscheme = "alduin" -- Set colorscheme { gruvbox, onedark, catppuccin, nord, dracula }
 
 if colorscheme == "onedark" then
 	-- Onedark Default Configuration
@@ -151,6 +151,10 @@ if colorscheme == "everforest" then
 	end
 
 	vim.cmd([[colorscheme everforest]])
+end
+
+if colorscheme == "alduin" then
+	vim.cmd([[colorscheme alduin]])
 end
 
 if colorscheme == "dracula" then

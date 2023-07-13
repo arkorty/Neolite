@@ -6,6 +6,8 @@ end
 packer.startup(function(use)
     -- Visible indentation
     use("lukas-reineke/indent-blankline.nvim")
+    
+    use("AlessandroYorba/Alduin")
 
 	-- Git integration
 	use("lewis6991/gitsigns.nvim")
