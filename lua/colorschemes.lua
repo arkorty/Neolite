@@ -1,4 +1,4 @@
-local colorscheme = "alduin" -- Set colorscheme { gruvbox, onedark, catppuccin, nord, dracula }
+local colorscheme = "catppuccin" -- Set colorscheme { gruvbox, onedark, catppuccin, nord, dracula, alduin }
 
 if colorscheme == "onedark" then
 	-- Onedark Default Configuration
@@ -52,7 +52,7 @@ if colorscheme == "catppuccin" then
 		return
 	end
 	catppuccin.setup({
-		flavour = "mocha", -- latte, frappe, macchiato, mocha
+		flavour = "macchiato", -- latte, frappe, macchiato, mocha
 		background = {
 			-- :h background
 			light = "latte",
