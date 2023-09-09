@@ -136,7 +136,7 @@ if colorscheme == "gruvbox" then
 end
 
 if colorscheme == "nord" then
-	local ok, nord = pcall(require, "nord")
+	local ok = pcall(require, "nord")
 	if not ok then
 		return
 	end
@@ -145,7 +145,7 @@ if colorscheme == "nord" then
 end
 
 if colorscheme == "everforest" then
-	local ok, everforest = pcall(require, "nord")
+	local ok = pcall(require, "nord")
 	if not ok then
 		return
 	end
