@@ -5,4 +5,4 @@ vim.o.relativenumber = true
 vim.o.smartindent = true
 vim.o.syntax = true
 vim.o.cursorline = true
-vim.o.signcolumn = "number"
+vim.o.signcolumn = "auto"
