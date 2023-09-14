@@ -13,6 +13,11 @@ if not luasnip_vscode_ok then
 	return
 end
 
+local lspkind_ok, lspkind = pcall(require, "lspkind")
+if not lspkind_ok then
+	return
+end
+
 luasnip_vscode.lazy_load()
 
 cmp.setup({
@@ -45,18 +50,14 @@ cmp.setup({
 		ghost_text = false,
 	},
 	formatting = {
-		fields = { "kind", "abbr", "menu" },
+		fields = { "abbr", "kind", "menu" },
 		format = function(entry, vim_item)
-			local lk_ok, lspkind = pcall(require, "lspkind")
-			if not lk_ok then
-				return
-			end
 			local kind = lspkind.cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
 			local strings = vim.split(kind.kind, "%s", { trimempty = true })
-			kind.kind = " " .. (strings[1] or "") .. " "
-			kind.menu = "    (" .. (strings[2] or "") .. ")"
+			kind.kind = "               " .. (strings[1] or "") .. " "
+			kind.menu = (strings[2] or "")
 
 			return kind
 		end,
-	},
+    },
 })

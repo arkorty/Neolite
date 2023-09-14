@@ -3,8 +3,8 @@ if not ok then
 	return
 end
 
-local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-require("null-ls").setup({
+--local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+null_ls.setup({
 	sources = {
 		null_ls.builtins.formatting.rustfmt,
 		null_ls.builtins.formatting.stylua,

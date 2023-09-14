@@ -8,6 +8,6 @@ end
 
 bufferline.setup({
 	options = {
-		mode = "tabs", -- set to "buffers" to only show buffers instead
+		mode = "buffers", -- set to "buffers" to only show buffers instead
 	},
 })

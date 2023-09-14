@@ -1,4 +1,4 @@
-local colorscheme = "catppuccin" -- Set colorscheme { gruvbox, onedark, catppuccin, nord, dracula, alduin }
+local colorscheme = "onedark" -- Set colorscheme { gruvbox, onedark, catppuccin, nord, dracula, alduin }
 
 if colorscheme == "onedark" then
 	-- Onedark Default Configuration
