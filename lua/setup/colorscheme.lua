@@ -1,4 +1,4 @@
-local colorscheme = "onedark" -- Set colorscheme { gruvbox, onedark, catppuccin, nord, dracula, alduin }
+local colorscheme = "catppuccin" -- Set colorscheme { gruvbox, onedark, catppuccin, nord, dracula }
 
 if colorscheme == "onedark" then
 	-- Onedark Default Configuration
@@ -145,16 +145,12 @@ if colorscheme == "nord" then
 end
 
 if colorscheme == "everforest" then
-	local ok = pcall(require, "nord")
+	local ok = pcall(require, "everforest")
 	if not ok then
 		return
 	end
 
 	vim.cmd([[colorscheme everforest]])
-end
-
-if colorscheme == "alduin" then
-	vim.cmd([[colorscheme alduin]])
 end
 
 if colorscheme == "dracula" then
