@@ -1,7 +1,7 @@
 local opts = { noremap = true, silent = true }
 
 --Local term_opts = { silent = true }
-local keymap = vim.keymap.keymap
+local keymap = vim.keymap.set
 
 -- Bind a leader key
 keymap("", ";", "<Nop>", opts) -- undo any previous keymap
