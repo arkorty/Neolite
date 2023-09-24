@@ -20,16 +20,11 @@ vim.g.maplocalleader = ";"
 -- Normal mode --
 bind("n", "<C-f>", ":Neotree toggle<CR>", opts)
 
--- Buffer navigation
-bind("n", "<Leader>bp", ":bprev<CR>", opts)
-bind("n", "<Leader>bn", ":bnext<CR>", opts)
-bind("n", "<Leader>bd", ":bdelete<CR>", opts)
-
 -- Better window navigation
-bind("n", "<C-Left>",  "<C-w>h", opts)
-bind("n", "<C-Down>",  "<C-w>j", opts)
-bind("n", "<C-Up>",  "<C-w>k", opts)
-bind("n", "<C-Right>",  "<C-w>l", opts)
+bind("n", "<C-Left>", "<C-w>h", opts)
+bind("n", "<C-Down>", "<C-w>j", opts)
+bind("n", "<C-Up>", "<C-w>k", opts)
+bind("n", "<C-Right>", "<C-w>l", opts)
 
 -- Resize with arrows
 bind("n", "<C-k>", ":resize -2<CR>", opts)
