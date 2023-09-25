@@ -1,4 +1,4 @@
-local colorscheme = "catppuccin" -- Set colorscheme { gruvbox, onedark, catppuccin, nord, dracula }
+local colorscheme = "onedark" -- Set colorscheme { gruvbox, onedark, catppuccin, dracula }
 
 if colorscheme == "onedark" then
 	-- Onedark Default Configuration
@@ -8,7 +8,7 @@ if colorscheme == "onedark" then
 	end
 	onedark.setup({
 		-- Main options --
-		style = "darker", -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
+		style = "warm", -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
 		transparent = false, -- Show/hide background
 		term_colors = true, -- Change terminal color as per the selected theme style
 		ending_tildes = false, -- Show the end-of-buffer tildes. By default they are hidden
@@ -133,24 +133,6 @@ if colorscheme == "gruvbox" then
 	-- Load Gruvbox
 	vim.o.background = "dark" -- or "light" for light mode
 	vim.cmd([[colorscheme gruvbox]])
-end
-
-if colorscheme == "nord" then
-	local ok = pcall(require, "nord")
-	if not ok then
-		return
-	end
-
-	vim.cmd([[colorscheme nord]])
-end
-
-if colorscheme == "everforest" then
-	local ok = pcall(require, "everforest")
-	if not ok then
-		return
-	end
-
-	vim.cmd([[colorscheme everforest]])
 end
 
 if colorscheme == "dracula" then
