@@ -14,12 +14,6 @@ vim.opt.rtp:prepend(lazypath)
 local plugins = {
 	"lukas-reineke/indent-blankline.nvim",
 	"lewis6991/gitsigns.nvim",
-	"xiyaowong/transparent.nvim",
-	"shaunsingh/nord.nvim",
-	"Mofiqul/dracula.nvim",
-	"navarasu/onedark.nvim",
-	"ellisonleao/gruvbox.nvim",
-	"sainnhe/everforest",
 	"williamboman/mason.nvim",
 	"williamboman/mason-lspconfig.nvim",
 	"neovim/nvim-lspconfig",
@@ -34,29 +28,13 @@ local plugins = {
 	"hrsh7th/cmp-nvim-lsp",
 	"nvim-treesitter/nvim-treesitter",
 	"simrat39/rust-tools.nvim",
-	{ "catppuccin/nvim", as = "catppuccin" },
-	{ "akinsho/toggleterm.nvim", version = "*", config = true },
+	{ "ellisonleao/gruvbox.nvim", priority = 1000 },
 	{ "nvim-lualine/lualine.nvim", dependencies = { "nvim-tree/nvim-web-devicons", opt = true } },
-	{ "nvim-tree/nvim-tree.lua", dependencies = { "nvim-tree/nvim-web-devicons" }, tag = "nightly" },
-	{
-		"akinsho/bufferline.nvim",
-		version = "*",
-		dependencies = "nvim-tree/nvim-web-devicons",
-	},
 	{
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.2",
 		-- or                              , branch = '0.1.x',
 		dependencies = { "nvim-lua/plenary.nvim" },
-	},
-	{
-		"nvim-neo-tree/neo-tree.nvim",
-		branch = "v3.x",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-			"MunifTanjim/nui.nvim",
-		},
 	},
 }
 
