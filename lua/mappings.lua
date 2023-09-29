@@ -4,9 +4,9 @@ local opts = { noremap = true, silent = true }
 local keymap = vim.keymap.set
 
 -- Bind a leader key
-keymap("", ";", "<Nop>", opts) -- undo any previous keymap
-vim.g.mapleader = ";"
-vim.g.maplocalleader = ";"
+keymap("", "<Space>", "<Nop>", opts) -- release previously binded key
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 -- Modes
 --   Normal Mode       = 'n',
@@ -15,9 +15,6 @@ vim.g.maplocalleader = ";"
 --   Visual Block Mode = 'x',
 --   Terminal Mode     = 't',
 --   Command Mode      = 'c',
-
--- Normal mode --
-keymap("n", "<C-f>", ":Neotree toggle<CR>", opts)
 
 -- Better window navigation
 keymap("n", "<C-Left>", "<C-w>h", opts)
