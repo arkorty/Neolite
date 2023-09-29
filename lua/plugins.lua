@@ -12,7 +12,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
-	"lukas-reineke/indent-blankline.nvim",
 	"lewis6991/gitsigns.nvim",
 	"williamboman/mason.nvim",
 	"williamboman/mason-lspconfig.nvim",
@@ -28,7 +27,7 @@ local plugins = {
 	"hrsh7th/cmp-nvim-lsp",
 	"nvim-treesitter/nvim-treesitter",
 	"simrat39/rust-tools.nvim",
-	{ "ellisonleao/gruvbox.nvim", priority = 1000 },
+	{ "EdenEast/nightfox.nvim" }, -- lazy
 	{ "nvim-lualine/lualine.nvim", dependencies = { "nvim-tree/nvim-web-devicons", opt = true } },
 	{
 		"nvim-telescope/telescope.nvim",
