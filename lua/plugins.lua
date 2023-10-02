@@ -12,6 +12,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
+	{ "stevearc/dressing.nvim", event = "VeryLazy" },
 	"lewis6991/gitsigns.nvim",
 	"williamboman/mason.nvim",
 	"williamboman/mason-lspconfig.nvim",
@@ -27,13 +28,13 @@ local plugins = {
 	"hrsh7th/cmp-nvim-lsp",
 	"nvim-treesitter/nvim-treesitter",
 	"simrat39/rust-tools.nvim",
-	{ "EdenEast/nightfox.nvim" }, -- lazy
-	{ "nvim-lualine/lualine.nvim", dependencies = { "nvim-tree/nvim-web-devicons", opt = true } },
+	"EdenEast/nightfox.nvim", -- lazy
+	"nvim-lualine/lualine.nvim",
 	{
 		"nvim-telescope/telescope.nvim",
-		tag = "0.1.2",
-		-- or                              , branch = '0.1.x',
-		dependencies = { "nvim-lua/plenary.nvim" },
+		--tag = "0.1.2",
+		branch = "0.1.x",
+		dependencies = { "nvim-lua/plenary.nvim", { "nvim-telescope/telescope-fzf-native.nvim", build = "make" } },
 	},
 }
 
