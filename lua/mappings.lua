@@ -32,7 +32,7 @@ keymap("n", "<C-l>", ":vertical resize +2<CR>", opts)
 local telescope_status_ok, telescope = pcall(require, "telescope.builtin")
 if telescope_status_ok then
 	keymap("n", "<Leader>ff", telescope.find_files, {})
-	keymap("n", "<Leader>fg", telescope.live_grep, {})
+	keymap("n", "<Leader>fl", telescope.live_grep, {})
 	keymap("n", "<Leader>fb", telescope.buffers, {})
-	keymap("n", "<Leader>fh", telescope.help_tags, {})
+	keymap("n", "<Leader>ft", telescope.treesitter, {})
 end

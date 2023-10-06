@@ -8,40 +8,12 @@ You also have the added benefit of becoming a true Vim chad once you start using
 
 # Dependencies
 
-- [cURL](https://github.com/curl/curl)
 - [Git](https://github.com/git/git)
 - [Neovim](https://github.com/neovim/neovim)
 
 # Optional Dependencies
 
 - [npm](https://github.com/npm/cli)
-- [Lazygit](https://github.com/jesseduffield/lazygit)
-
-# Quick Start
-
-Once you have all the dependencies sorted, run the command below and we'll take care of the rest.
-
-```
-curl -sLf https://raw.githubusercontent.com/arkorty/neolite/master/install.sh | bash
-```
-
-# Screenshots
-
-### File Tree & Active Buffer
-
-![file-tree.png](blob/file-tree.png)
-
-### Fuzzy Finder
-
-![fuzzy-finder.png](blob/fuzzy-finder.png)
-
-### Terminal & Lazygit
-
-![lazygit.png](blob/lazygit.png)
-
-### Live Grep
-
-![live-grep.png](blob/live-grep.png)
 
 # License
 
