@@ -28,8 +28,8 @@ local plugins = {
 	"hrsh7th/cmp-nvim-lsp",
 	"nvim-treesitter/nvim-treesitter",
 	"simrat39/rust-tools.nvim",
-	"EdenEast/nightfox.nvim", -- lazy
 	"nvim-lualine/lualine.nvim",
+	{ "navarasu/onedark.nvim", priority = 1000, config = true },
 	{
 		"nvim-telescope/telescope.nvim",
 		--tag = "0.1.2",
