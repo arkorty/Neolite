@@ -22,7 +22,7 @@ You also have the added benefit of becoming a true Vim chad once you start using
 Once you have all the dependencies sorted, run the command below and we'll take care of the rest.
 
 ```
-curl -sLf https://raw.githubusercontent.com/arkorty/neolite/master/install.sh | bash
+git clone -b dev --single-branch https://github.com/arkorty/neolite.git
 ```
 
 # Screenshots
