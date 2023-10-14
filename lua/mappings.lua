@@ -16,17 +16,11 @@ vim.g.maplocalleader = " "
 --   Terminal Mode     = 't',
 --   Command Mode      = 'c',
 
--- Better window navigation
-keymap("n", "<C-Left>", "<C-w>h", opts)
-keymap("n", "<C-Down>", "<C-w>j", opts)
-keymap("n", "<C-Up>", "<C-w>k", opts)
-keymap("n", "<C-Right>", "<C-w>l", opts)
-
--- Resize with vim-keys
-keymap("n", "<C-k>", ":resize -2<CR>", opts)
-keymap("n", "<C-j>", ":resize -2<CR>", opts)
-keymap("n", "<C-h>", ":vertical resize -2<CR>", opts)
-keymap("n", "<C-l>", ":vertical resize +2<CR>", opts)
+-- Resize with arrow-keys
+keymap("n", "<C-Up>", ":resize -2<CR>", opts)
+keymap("n", "<C-Down>", ":resize +2<CR>", opts)
+keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
+keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
 -- Telescope fuzzy finder
 local telescope_status_ok, telescope = pcall(require, "telescope.builtin")
@@ -36,3 +30,7 @@ if telescope_status_ok then
 	keymap("n", "<Leader>fb", telescope.buffers, {})
 	keymap("n", "<Leader>ft", telescope.treesitter, {})
 end
+
+keymap("n", "<Leader>n", ":Neotree toggle<CR>", opts)
+keymap("n", "<Leader>w", ":w<CR>", opts)
+keymap("n", "<Leader>Q", ":qa<CR>", opts)
