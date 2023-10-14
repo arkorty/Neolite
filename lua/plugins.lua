@@ -29,7 +29,16 @@ local plugins = {
 	"nvim-treesitter/nvim-treesitter",
 	"simrat39/rust-tools.nvim",
 	"nvim-lualine/lualine.nvim",
-	{ "navarasu/onedark.nvim", priority = 1000, config = true },
+	{ "navarasu/onedark.nvim", priority = 1000 },
+	{
+		"nvim-neo-tree/neo-tree.nvim",
+		branch = "v3.x",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+			"MunifTanjim/nui.nvim",
+		},
+	},
 	{
 		"nvim-telescope/telescope.nvim",
 		--tag = "0.1.2",
