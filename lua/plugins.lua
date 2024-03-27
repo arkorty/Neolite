@@ -12,6 +12,14 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
+    {
+      "folke/zen-mode.nvim",
+      opts = {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      }
+    },
 	{ "stevearc/dressing.nvim", event = "VeryLazy" },
 	{ "ellisonleao/gruvbox.nvim", priority = 1000, config = true },
 	{ "EdenEast/nightfox.nvim" },
@@ -40,24 +48,13 @@ local plugins = {
 	{ "simrat39/rust-tools.nvim" },
 	{ "nvim-lualine/lualine.nvim" },
 	{ "norcalli/nvim-colorizer.lua" },
-	{ "github/copilot.vim" },
 	{
 		"nvim-telescope/telescope.nvim",
 		--tag = "0.1.2",
 		branch = "0.1.x",
 		dependencies = { "nvim-lua/plenary.nvim", { "nvim-telescope/telescope-fzf-native.nvim", build = "make" } },
 	},
-	--{
-	--    "nvim-neo-tree/neo-tree.nvim",
-	--    branch = "v3.x",
-	--    dependencies = {
-	--        "nvim-lua/plenary.nvim",
-	--        "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-	--        "MunifTanjim/nui.nvim",
-	--        -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
-	--    },
-	--},
-	{
+    {
 		{
 			"akinsho/toggleterm.nvim",
 			version = "*",
