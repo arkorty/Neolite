@@ -1,78 +1,81 @@
-local ok, packer = pcall(require, "packer")
-if not ok then
-	return
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
+	})
 end
+vim.opt.rtp:prepend(lazypath)
 
-packer.startup(function(use)
-    -- Visible indentation
-    use("lukas-reineke/indent-blankline.nvim")
-    
-    use("AlessandroYorba/Alduin")
+local plugins = {
+	{ "stevearc/dressing.nvim", event = "VeryLazy" },
+	{ "ellisonleao/gruvbox.nvim", priority = 1000, config = true },
+	{ "EdenEast/nightfox.nvim" },
+	{ "rebelot/kanagawa.nvim" },
+	{ "savq/melange-nvim" },
+	{
+		"akinsho/bufferline.nvim",
+		version = "*",
+		dependencies = "nvim-tree/nvim-web-devicons",
+		config = true,
+	},
+	{ "lewis6991/gitsigns.nvim" },
+	{ "williamboman/mason.nvim" },
+	{ "williamboman/mason-lspconfig.nvim" },
+	{ "neovim/nvim-lspconfig" },
+	{ "jose-elias-alvarez/null-ls.nvim" },
+	{ "L3MON4D3/LuaSnip" },
+	{ "rafamadriz/friendly-snippets" },
+	{ "hrsh7th/nvim-cmp" },
+	{ "hrsh7th/cmp-buffer" },
+	{ "hrsh7th/cmp-path" },
+	{ "saadparwaiz1/cmp_luasnip" },
+	{ "onsails/lspkind.nvim" },
+	{ "hrsh7th/cmp-nvim-lsp" },
+	{ "nvim-treesitter/nvim-treesitter" },
+	{ "simrat39/rust-tools.nvim" },
+	{ "nvim-lualine/lualine.nvim" },
+	{ "norcalli/nvim-colorizer.lua" },
+	{ "github/copilot.vim" },
+	{
+		"nvim-telescope/telescope.nvim",
+		--tag = "0.1.2",
+		branch = "0.1.x",
+		dependencies = { "nvim-lua/plenary.nvim", { "nvim-telescope/telescope-fzf-native.nvim", build = "make" } },
+	},
+	--{
+	--    "nvim-neo-tree/neo-tree.nvim",
+	--    branch = "v3.x",
+	--    dependencies = {
+	--        "nvim-lua/plenary.nvim",
+	--        "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+	--        "MunifTanjim/nui.nvim",
+	--        -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+	--    },
+	--},
+	{
+		{
+			"akinsho/toggleterm.nvim",
+			version = "*",
+			opts = {
+				open_mapping = [[<C-\>]],
+				hide_numbers = true,
+				start_in_insert = true,
+				direction = "tab",
+				close_on_exit = true,
+				shell = vim.o.shell,
+				float_opts = {
+					border = "curved",
+				},
+			},
+		},
+	},
+}
 
-	-- Git integration
-	use("lewis6991/gitsigns.nvim")
+local opts = {}
 
-    -- Transparency enabler
-	use("xiyaowong/transparent.nvim")
-
-	-- Nord colorscheme
-	use("shaunsingh/nord.nvim")
-
-	-- Dracula colorscheme
-	use("Mofiqul/dracula.nvim")
-
-	-- Onedark colorscheme
-	use("navarasu/onedark.nvim")
-
-	-- Gruvbox colorscheme
-	use("ellisonleao/gruvbox.nvim")
-
-	--Everforest colorscheme
-	use("sainnhe/everforest")
-
-	-- Catppuccin colorscheme
-	use({ "catppuccin/nvim", as = "catppuccin" })
-
-	-- Plugin manager
-	use("wbthomason/packer.nvim")
-
-	-- Terminal
-	use({ "akinsho/toggleterm.nvim", tag = "*" })
-
-	-- File tree
-	use({ "nvim-tree/nvim-tree.lua", requires = { "nvim-tree/nvim-web-devicons" }, tag = "nightly" })
-
-	-- Statusline
-	use({ "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons", opt = true } })
-
-	-- Buffer tabs
-	use({ "akinsho/bufferline.nvim", tag = "v3.*", requires = "nvim-tree/nvim-web-devicons" })
-
-	use({ "nvim-telescope/telescope.nvim", tag = "0.1.x", requires = { { "nvim-lua/plenary.nvim" } } })
-
-	-- LSP manager
-	use("williamboman/mason.nvim")
-	use("williamboman/mason-lspconfig.nvim")
-	use("neovim/nvim-lspconfig")
-
-	-- Formatting
-	use("jose-elias-alvarez/null-ls.nvim")
-
-	-- Snippets
-	use("L3MON4D3/LuaSnip") --snippet engine
-	use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
-
-	-- Completions
-	use("hrsh7th/nvim-cmp") -- The completion plugin
-	use("hrsh7th/cmp-buffer") -- buffer completions
-	use("hrsh7th/cmp-path") -- path completions
-	use("saadparwaiz1/cmp_luasnip") -- snippet completions
-	use("onsails/lspkind.nvim")
-	use("hrsh7th/cmp-nvim-lsp")
-
-	-- Syntax highlighting
-	use("nvim-treesitter/nvim-treesitter")
-
-	-- Rust tools
-	use("simrat39/rust-tools.nvim")
-end)
+require("lazy").setup(plugins, opts)
