@@ -1,6 +1,6 @@
-local ok, nightfox = pcall(require, "nightfox")
+local ok, _colors = pcall(require, "nightfox")
 if not ok then
-	return
+    return
 end
 
 -- setup must be called before loading
