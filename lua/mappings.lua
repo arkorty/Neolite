@@ -42,6 +42,7 @@ keymap("n", "<Leader>BB", ":bdelete<CR>", opts)
 keymap("n", "<Leader>jj", ":bprevious<CR>", opts)
 keymap("n", "<Leader>kk", ":bnext<CR>", opts)
 
+-- System clipboard yank and paste
 keymap("n", "P", '"+p', opts)
 keymap("v", "Y", '"+y', opts)
 
@@ -57,3 +58,6 @@ function _G.set_terminal_keymaps()
 end
 
 vim.cmd("autocmd! TermOpen term://*toggleterm#* lua set_terminal_keymaps()")
+
+-- Toggle ZenMode
+keymap("n", "<Leader>zz", ':ZenMode<CR>', opts)
