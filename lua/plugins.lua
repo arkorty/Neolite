@@ -59,10 +59,17 @@ local plugins = {
 			"akinsho/toggleterm.nvim",
 			version = "*",
 			opts = {
+                size = function(term)
+                  if term.direction == "horizontal" then
+                    return 24
+                  elseif term.direction == "vertical" then
+                    return vim.o.columns * 0.4
+                  end
+                end,
 				open_mapping = [[<C-\>]],
 				hide_numbers = true,
 				start_in_insert = true,
-				direction = "tab",
+				direction = "horizontal",
 				close_on_exit = true,
 				shell = vim.o.shell,
 				float_opts = {
