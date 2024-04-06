@@ -25,10 +25,10 @@ keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 -- Telescope fuzzy finder
 local telescope_status_ok, telescope = pcall(require, "telescope.builtin")
 if telescope_status_ok then
-	keymap("n", "<Leader>ff", telescope.find_files, {})
-	keymap("n", "<Leader>ll", telescope.live_grep, {})
-	keymap("n", "<Leader>bb", telescope.buffers, {})
-	keymap("n", "<Leader>tt", telescope.treesitter, {})
+    keymap("n", "<Leader>ff", telescope.find_files, {})
+    keymap("n", "<Leader>ll", telescope.live_grep, {})
+    keymap("n", "<Leader>bb", telescope.buffers, {})
+    keymap("n", "<Leader>tt", telescope.treesitter, {})
 end
 
 -- Lsp controls
@@ -44,17 +44,18 @@ keymap("n", "<Leader>kk", ":bnext<CR>", opts)
 
 -- System clipboard yank and paste
 keymap("n", "P", '"+p', opts)
+keymap("v", "P", '"+p', opts)
 keymap("v", "Y", '"+y', opts)
 
 -- Toggleterm controls
 function _G.set_terminal_keymaps()
-	local topts = { buffer = 0 }
-	keymap("t", "<esc>", [[<C-\><C-n>]], topts)
-	keymap("t", "<C-h>", [[<Cmd>wincmd h<CR>]], topts)
-	keymap("t", "<C-j>", [[<Cmd>wincmd j<CR>]], topts)
-	keymap("t", "<C-k>", [[<Cmd>wincmd k<CR>]], topts)
-	keymap("t", "<C-l>", [[<Cmd>wincmd l<CR>]], topts)
-	keymap("t", "<C-w>", [[<C-\><C-n><C-w>]], topts)
+    local topts = { buffer = 0 }
+    keymap("t", "<esc>", [[<C-\><C-n>]], topts)
+    keymap("t", "<C-h>", [[<Cmd>wincmd h<CR>]], topts)
+    keymap("t", "<C-j>", [[<Cmd>wincmd j<CR>]], topts)
+    keymap("t", "<C-k>", [[<Cmd>wincmd k<CR>]], topts)
+    keymap("t", "<C-l>", [[<Cmd>wincmd l<CR>]], topts)
+    keymap("t", "<C-w>", [[<C-\><C-n><C-w>]], topts)
 end
 
 vim.cmd("autocmd! TermOpen term://*toggleterm#* lua set_terminal_keymaps()")
