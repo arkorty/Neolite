@@ -41,6 +41,7 @@ keymap("n", "<Leader>li", ":LspInfo<CR>", opts)
 keymap("n", "<Leader>BB", ":bdelete<CR>", opts)
 keymap("n", "<Leader>jj", ":bprevious<CR>", opts)
 keymap("n", "<Leader>kk", ":bnext<CR>", opts)
+keymap("n", "<Leader>nn", ":Neotree toggle<CR>", opts)
 
 -- System clipboard yank and paste
 keymap("n", "P", '"+p', opts)
