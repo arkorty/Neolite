@@ -1,7 +1,7 @@
-local ok, _colors = pcall(require, "onedark")
-if not ok then
-    return
-end
+--local ok, _colors = pcall(require, "melange")
+--if not ok then
+--    return
+--end
 
 -- setup must be called before loading
-vim.cmd("colorscheme onedark")
+vim.cmd("colorscheme melange")
