@@ -5,50 +5,36 @@ if not vim.loop.fs_stat(lazypath) then
         "clone",
         "--filter=blob:none",
         "https://github.com/folke/lazy.nvim.git",
-        "--branch=stable", -- latest stable release
+        "--branch=stable",
         lazypath,
     })
 end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
-    {
-        "folke/zen-mode.nvim",
-        opts = {
-            -- your configuration comes here
-            -- or leave it empty to use the default settings
-            -- refer to the configuration section below
-        }
-    },
+    { "folke/zen-mode.nvim" },
     {
         "nvim-neo-tree/neo-tree.nvim",
         branch = "v3.x",
         dependencies = {
             "nvim-lua/plenary.nvim",
-            "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+            "nvim-tree/nvim-web-devicons",
             "MunifTanjim/nui.nvim",
-            "3rd/image.nvim",              -- Optional image support in preview window: See `# Preview Mode` for more information
+            "3rd/image.nvim",
         }
     },
     { "stevearc/dressing.nvim",   event = "VeryLazy" },
     { "ellisonleao/gruvbox.nvim", priority = 1000,   config = true },
     {
         "navarasu/onedark.nvim",
-        config = {                        -- Lua
-            -- Main options --
-            style = 'warmer',             -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
-            transparent = false,          -- Show/hide background
-            term_colors = true,           -- Change terminal color as per the selected theme style
-            ending_tildes = false,        -- Show the end-of-buffer tildes. By default they are hidden
-            cmp_itemkind_reverse = false, -- reverse item kind highlights in cmp menu
-
-            -- toggle theme style ---
-            toggle_style_key = nil,                                                              -- keybind to toggle theme style. Leave it nil to disable it, or set it to a string, for example "<leader>ts"
-            toggle_style_list = { 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer', 'light' }, -- List of styles to toggle between
-
-            -- Change code style ---
-            -- Options are italic, bold, underline, none
-            -- You can configure multiple style with comma separated, For e.g., keywords = 'italic,bold'
+        config = {
+            style = 'warmer',
+            transparent = true,
+            term_colors = true,
+            ending_tildes = false,
+            cmp_itemkind_reverse = false,
+            toggle_style_key = nil,
+            toggle_style_list = { 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer', 'light' },
             code_style = {
                 comments = 'italic',
                 keywords = 'none',
@@ -56,21 +42,15 @@ local plugins = {
                 strings = 'none',
                 variables = 'none'
             },
-
-            -- Lualine options --
             lualine = {
-                transparent = false, -- lualine center bar transparency
+                transparent = false,
             },
-
-            -- Custom Highlights --
-            colors = {},     -- Override default colors
-            highlights = {}, -- Override highlight groups
-
-            -- Plugins Config --
+            colors = {},
+            highlights = {},
             diagnostics = {
-                darker = true,     -- darker colors for diagnostic
-                undercurl = true,  -- use undercurl instead of underline for diagnostics
-                background = true, -- use background color for virtual text
+                darker = true,
+                undercurl = true,
+                background = true,
             },
         }
     },
@@ -102,31 +82,28 @@ local plugins = {
     { "norcalli/nvim-colorizer.lua" },
     {
         "nvim-telescope/telescope.nvim",
-        --tag = "0.1.2",
         branch = "0.1.x",
         dependencies = { "nvim-lua/plenary.nvim", { "nvim-telescope/telescope-fzf-native.nvim", build = "make" } },
     },
     {
-        {
-            "akinsho/toggleterm.nvim",
-            version = "*",
-            opts = {
-                size = function(term)
-                    if term.direction == "horizontal" then
-                        return 24
-                    elseif term.direction == "vertical" then
-                        return vim.o.columns * 0.4
-                    end
-                end,
-                open_mapping = [[<C-\>]],
-                hide_numbers = true,
-                start_in_insert = true,
-                direction = "float",
-                close_on_exit = true,
-                shell = vim.o.shell,
-                float_opts = {
-                    border = "curved",
-                },
+        "akinsho/toggleterm.nvim",
+        version = "*",
+        opts = {
+            size = function(term)
+                if term.direction == "horizontal" then
+                    return 24
+                elseif term.direction == "vertical" then
+                    return vim.o.columns * 0.4
+                end
+            end,
+            open_mapping = [[<C-\>]],
+            hide_numbers = true,
+            start_in_insert = true,
+            direction = "float",
+            close_on_exit = true,
+            shell = vim.o.shell,
+            float_opts = {
+                border = "curved",
             },
         },
     },
