@@ -21,7 +21,8 @@ local plugins = {
             "nvim-tree/nvim-web-devicons",
             "MunifTanjim/nui.nvim",
             "3rd/image.nvim",
-        }
+        },
+        config = { hijack_netrw_behavior = "open_default" }
     },
     { "stevearc/dressing.nvim",   event = "VeryLazy" },
     { "ellisonleao/gruvbox.nvim", priority = 1000,   config = true },
