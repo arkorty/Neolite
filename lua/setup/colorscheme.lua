@@ -1,8 +1,8 @@
-local ok, _ = pcall(require, "onedark")
+local ok, _ = pcall(require, "hardhacker")
 if not ok then
-    return
+	return
 end
 
 -- setup must be called before loading
 vim.opt.termguicolors = true
-vim.cmd.colorscheme("onedark")
+vim.cmd.colorscheme("hardhacker")
