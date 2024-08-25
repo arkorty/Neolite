@@ -1,3 +1,4 @@
+-- Bootstrap lazy.nvim and load plugins
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
 	vim.fn.system({
@@ -11,8 +12,9 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- plugins to load
 local plugins = {
-	{ "folke/zen-mode.nvim" },
+	-- Appearance
 	{
 		"hardhackerlabs/theme-vim",
 		name = "hardhacker",
@@ -21,23 +23,10 @@ local plugins = {
 		config = function()
 			vim.g.hardhacker_hide_tilde = 1
 			vim.g.hardhacker_keyword_italic = 1
-			-- custom highlights
 			vim.g.hardhacker_custom_highlights = {}
 			vim.cmd("colorscheme hardhacker")
 		end,
 	},
-	{
-		"nvim-neo-tree/neo-tree.nvim",
-		branch = "v3.x",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"nvim-tree/nvim-web-devicons",
-			"MunifTanjim/nui.nvim",
-			"3rd/image.nvim",
-		},
-		config = { hijack_netrw_behavior = "open_default" },
-	},
-	{ "stevearc/dressing.nvim", event = "VeryLazy" },
 	{ "ellisonleao/gruvbox.nvim", priority = 1000, config = true },
 	{
 		"navarasu/onedark.nvim",
@@ -56,9 +45,7 @@ local plugins = {
 				strings = "none",
 				variables = "none",
 			},
-			lualine = {
-				transparent = false,
-			},
+			lualine = { transparent = false },
 			colors = {},
 			highlights = {},
 			diagnostics = {
@@ -71,33 +58,16 @@ local plugins = {
 	{ "EdenEast/nightfox.nvim" },
 	{ "rebelot/kanagawa.nvim" },
 	{ "savq/melange-nvim" },
+
+	-- UI
+	{ "folke/zen-mode.nvim" },
+	{ "nvim-lualine/lualine.nvim" },
+	{ "stevearc/dressing.nvim", event = "VeryLazy" },
 	{
 		"akinsho/bufferline.nvim",
 		version = "*",
 		dependencies = "nvim-tree/nvim-web-devicons",
 		config = true,
-	},
-	{ "lewis6991/gitsigns.nvim" },
-	{ "williamboman/mason.nvim" },
-	{ "williamboman/mason-lspconfig.nvim" },
-	{ "neovim/nvim-lspconfig" },
-	{ "jose-elias-alvarez/null-ls.nvim" },
-	{ "L3MON4D3/LuaSnip" },
-	{ "rafamadriz/friendly-snippets" },
-	{ "hrsh7th/nvim-cmp" },
-	{ "hrsh7th/cmp-buffer" },
-	{ "hrsh7th/cmp-path" },
-	{ "saadparwaiz1/cmp_luasnip" },
-	{ "onsails/lspkind.nvim" },
-	{ "hrsh7th/cmp-nvim-lsp" },
-	{ "nvim-treesitter/nvim-treesitter" },
-	{ "simrat39/rust-tools.nvim" },
-	{ "nvim-lualine/lualine.nvim" },
-	{ "norcalli/nvim-colorizer.lua" },
-	{
-		"nvim-telescope/telescope.nvim",
-		branch = "0.1.x",
-		dependencies = { "nvim-lua/plenary.nvim", { "nvim-telescope/telescope-fzf-native.nvim", build = "make" } },
 	},
 	{
 		"akinsho/toggleterm.nvim",
@@ -116,13 +86,59 @@ local plugins = {
 			direction = "tab",
 			close_on_exit = true,
 			shell = vim.o.shell,
-			float_opts = {
-				border = "curved",
-			},
+			float_opts = { border = "curved" },
+		},
+	},
+	{
+		"nvim-neo-tree/neo-tree.nvim",
+		branch = "v3.x",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-tree/nvim-web-devicons",
+			"MunifTanjim/nui.nvim",
+			"3rd/image.nvim",
+		},
+		config = { hijack_netrw_behavior = "open_default" },
+	},
+
+	-- Git
+	{ "lewis6991/gitsigns.nvim" },
+
+	-- LSP and Completion
+	{ "williamboman/mason.nvim" },
+	{ "williamboman/mason-lspconfig.nvim" },
+	{ "neovim/nvim-lspconfig" },
+	{ "jose-elias-alvarez/null-ls.nvim" },
+	{ "L3MON4D3/LuaSnip" },
+	{ "rafamadriz/friendly-snippets" },
+	{ "hrsh7th/nvim-cmp" },
+	{ "hrsh7th/cmp-buffer" },
+	{ "hrsh7th/cmp-path" },
+	{ "saadparwaiz1/cmp_luasnip" },
+	{ "onsails/lspkind.nvim" },
+	{ "hrsh7th/cmp-nvim-lsp" },
+
+	-- Treesitter
+	{ "nvim-treesitter/nvim-treesitter" },
+	{ "simrat39/rust-tools.nvim" },
+
+	-- Misc
+	{ "norcalli/nvim-colorizer.lua" },
+	{ "github/copilot.vim" },
+
+	-- Telescope
+	{
+		"nvim-telescope/telescope.nvim",
+		branch = "0.1.x",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 		},
 	},
 }
 
+-- options
 local opts = {}
 
+-- setup lazy
 require("lazy").setup(plugins, opts)
