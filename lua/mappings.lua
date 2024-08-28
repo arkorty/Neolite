@@ -25,7 +25,12 @@ keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 -- Telescope fuzzy finder
 local telescope_status_ok, telescope = pcall(require, "telescope.builtin")
 if telescope_status_ok then
-    keymap("n", "<Leader>ff", telescope.find_files, {})
+    keymap(
+        "n",
+        "<Leader>ff",
+        "<cmd>lua require'telescope.builtin'.find_files({ find_command = {'rg', '--files', '--hidden', '--no-ignore', '-g', '!.git' }})<cr>",
+        {}
+    )
     keymap("n", "<Leader>ll", telescope.live_grep, {})
     keymap("n", "<Leader>bb", telescope.buffers, {})
     keymap("n", "<Leader>tt", telescope.treesitter, {})
