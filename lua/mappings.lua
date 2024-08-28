@@ -67,4 +67,4 @@ end
 vim.cmd("autocmd! TermOpen term://*toggleterm#* lua set_terminal_keymaps()")
 
 -- Toggle ZenMode
-keymap("n", "<Leader>zz", ':ZenMode<CR>', opts)
+keymap("n", "<Leader>zz", ":ZenMode<CR>", opts)
