@@ -68,3 +68,10 @@ vim.cmd("autocmd! TermOpen term://*toggleterm#* lua set_terminal_keymaps()")
 
 -- Toggle ZenMode
 keymap("n", "<Leader>zz", ":ZenMode<CR>", opts)
+
+-- Copilot mappings
+vim.keymap.set("i", "<C-l>", 'copilot#Accept("\\<CR>")', {
+    expr = true,
+    replace_keycodes = false,
+})
+vim.g.copilot_no_tab_map = true
