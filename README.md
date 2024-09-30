@@ -6,16 +6,31 @@ Neolite is a fast and lightweight configuration of Neovim. For the uninitiated, 
 
 You also have the added benefit of becoming a true Vim chad once you start using Neovim instead of some web browser (ahem.. VS Code) disguised as an IDE.
 
-# Dependencies
+# Installation
 
-- [Git](https://github.com/git/git)
-- [Neovim](https://github.com/neovim/neovim)
-- [Make](https://www.gnu.org/software/make)
-- [GCC](https://www.gnu.org/software/gcc)
+##### Arch Linux
 
-# Optional Dependencies
+```bash
+sudo pacman -S git neovim make unzip gcc npm
+```
 
-- [npm](https://github.com/npm/cli)
+##### Debian/Ubuntu
+
+```bash
+sudo apt install git neovim make unzip gcc npm
+```
+
+##### Fedora/RHEL
+
+```bash
+sudo dnf install git neovim make unzip gcc npm
+```
+
+##### Clone Repository
+
+```bash
+git clone https://github.com/arkorty/Neolite.git ~/.config/nvim
+```
 
 # License
 
