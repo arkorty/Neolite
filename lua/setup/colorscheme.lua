@@ -1,8 +1,8 @@
-local ok, _ = pcall(require, "gruvbox")
+local ok, _ = pcall(require, "monokai")
 if not ok then
     return
 end
 
 -- setup must be called before loading
 vim.opt.termguicolors = true
-vim.cmd.colorscheme("gruvbox")
+vim.cmd.colorscheme("monokai_charcoal")

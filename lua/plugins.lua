@@ -27,6 +27,7 @@ local plugins = {
             vim.cmd("colorscheme hardhacker")
         end,
     },
+    { "arkorty/monokai.nvim" },
     { "ellisonleao/gruvbox.nvim", priority = 1000, config = true },
     {
         "navarasu/onedark.nvim",
@@ -62,7 +63,7 @@ local plugins = {
     -- UI
     { "folke/zen-mode.nvim" },
     { "nvim-lualine/lualine.nvim" },
-    { "stevearc/dressing.nvim", event = "VeryLazy" },
+    { "stevearc/dressing.nvim",   event = "VeryLazy" },
     {
         "akinsho/bufferline.nvim",
         version = "*",
