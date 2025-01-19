@@ -1,4 +1,4 @@
-![neolite.png](blob/neolite.png)
+![neolite.png](blob/cover.png)
 
 # About
 
