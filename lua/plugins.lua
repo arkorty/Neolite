@@ -63,7 +63,7 @@ local plugins = {
     -- UI
     { "folke/zen-mode.nvim" },
     { "nvim-lualine/lualine.nvim" },
-    { "stevearc/dressing.nvim",   event = "VeryLazy" },
+    { "stevearc/dressing.nvim", event = "VeryLazy" },
     {
         "akinsho/bufferline.nvim",
         version = "*",
@@ -103,7 +103,7 @@ local plugins = {
     },
 
     -- Git
-    { "lewis6991/gitsigns.nvim" },
+    { "lewis6991/gitsigns.nvim", config = true },
 
     -- LSP and Completion
     { "williamboman/mason.nvim" },
@@ -126,6 +126,7 @@ local plugins = {
     -- Misc
     { "norcalli/nvim-colorizer.lua" },
     { "github/copilot.vim" },
+    { "echasnovski/mini.align", config = true },
 
     -- Telescope
     {
