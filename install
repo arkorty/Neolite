@@ -1,0 +1,121 @@
+#!/bin/sh
+
+# Configuration
+NVIM_CONFIG_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/nvim"
+NVIM_CONFIG_REPO="https://github.com/arkorty/Neolite.git"
+
+# Required Programs and Libraries
+REQUIRED_PROGRAMS="
+git:git
+neovim:nvim
+make:make
+unzip:unzip
+gcc:gcc
+npm:npm
+"
+
+# Color output
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+NC='\033[0m' # No Color
+
+info() {
+	printf "${GREEN}[INFO]${NC} %s\n" "$1"
+}
+
+warn() {
+	printf "${YELLOW}[WARN]${NC} %s\n" "$1" >&2
+}
+
+error() {
+	printf "${RED}[ERROR]${NC} %s\n" "$1" >&2
+	exit 1
+}
+
+# Install missing programs
+install_dependencies() {
+	info "Checking for required programs..."
+
+	# Check for package manager
+	if command -v apt-get >/dev/null 2>&1; then
+		PKG_MANAGER="apt-get"
+		UPDATE_CMD="sudo apt-get update"
+		INSTALL_CMD="sudo apt-get install -y"
+	elif command -v dnf >/dev/null 2>&1; then
+		PKG_MANAGER="dnf"
+		UPDATE_CMD="sudo dnf update -y"
+		INSTALL_CMD="sudo dnf install -y"
+	elif command -v pacman >/dev/null 2>&1; then
+		PKG_MANAGER="pacman"
+		UPDATE_CMD="sudo pacman -Sy"
+		INSTALL_CMD="sudo pacman -S --noconfirm"
+	elif command -v brew >/dev/null 2>&1; then
+		PKG_MANAGER="brew"
+		UPDATE_CMD="brew update"
+		INSTALL_CMD="brew install"
+	else
+		error "Unsupported package manager"
+	fi
+
+	# Parse the required programs list
+	echo "$REQUIRED_PROGRAMS" | while IFS=: read -r pkg binary; do
+		[ -z "$pkg" ] && continue # Skip empty lines
+
+		if ! command -v "$binary" >/dev/null 2>&1; then
+			warn "$binary is not installed. Attempting to install $pkg..."
+
+			case "$PKG_MANAGER" in
+			apt-get | dnf | pacman)
+				$UPDATE_CMD || warn "Failed to update package lists"
+				$INSTALL_CMD "$pkg" || error "Failed to install $pkg"
+				;;
+			brew)
+				$INSTALL_CMD "$pkg" || error "Failed to install $pkg"
+				;;
+			esac
+
+			# Verify installation
+			if command -v "$binary" >/dev/null 2>&1; then
+				info "$binary installed successfully"
+			else
+				error "Failed to verify $binary installation"
+			fi
+		else
+			info "$binary is already installed"
+		fi
+	done
+}
+
+# Setup Neovim configuration
+setup_nvim_config() {
+	info "Checking Neovim configuration..."
+
+	if [ -d "$NVIM_CONFIG_DIR" ]; then
+		warn "Neovim configuration already exists at $NVIM_CONFIG_DIR"
+		read -p "Do you want to overwrite it? [y/N] " answer
+		case "$answer" in
+		[yY]*)
+			info "Backing up existing configuration..."
+			mv "$NVIM_CONFIG_DIR" "${NVIM_CONFIG_DIR}.bak.$(date +%s)"
+			;;
+		*)
+			info "Keeping existing configuration"
+			return
+			;;
+		esac
+	fi
+
+	info "Cloning Neovim configuration from $NVIM_CONFIG_REPO"
+	git clone --branch dev --depth 1 "$NVIM_CONFIG_REPO" "$NVIM_CONFIG_DIR" || error "Failed to clone configuration"
+
+	info "Installing plugins..."
+	nvim --headless "+Lazy! sync" +qa || warn "Plugin installation might have failed - please check manually"
+
+	info "Neovim configuration installed successfully!"
+	echo "You can now launch Neovim with: nvim"
+}
+
+# Main execution
+install_dependencies
+setup_nvim_config
