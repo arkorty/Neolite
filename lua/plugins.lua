@@ -109,7 +109,7 @@ local plugins = {
     { "williamboman/mason.nvim" },
     { "williamboman/mason-lspconfig.nvim" },
     { "neovim/nvim-lspconfig" },
-    { "jose-elias-alvarez/null-ls.nvim" },
+    --{ "jose-elias-alvarez/null-ls.nvim" },
     { "L3MON4D3/LuaSnip" },
     { "rafamadriz/friendly-snippets" },
     { "hrsh7th/nvim-cmp" },

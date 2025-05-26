@@ -26,29 +26,41 @@ end
 
 local capabilities = cmp_nvim_lsp.default_capabilities()
 
-mason_lspconfig.setup_handlers({
-    function(server)
-        lspconfig[server].setup({
-            capabilities = capabilities,
-        })
-        lspconfig.lua_ls.setup({
-            capabilities = capabilities,
-            settings = {
-                Lua = {
-                    diagnostics = {
-                        -- Get the language server to recognize the `vim` global
-                        globals = { "vim" },
+mason_lspconfig.setup({
+    ensure_installed = { "lua_ls", "rust_analyzer", "clangd", "marksman" },
+    handlers = {
+        function(server_name)
+            local server_opts = {
+                capabilities = capabilities,
+            }
+
+            if server_name == "lua_ls" then
+                server_opts.settings = {
+                    Lua = {
+                        diagnostics = {
+                            globals = { "vim" },
+                        },
                     },
-                },
-            },
-        })
-    end,
-    ["rust_analyzer"] = function()
-        local rt_ok, rust_tools = pcall(require, "rust-tools")
-        if rt_ok then
-            rust_tools.setup({})
-        end
-    end,
+                }
+            end
+
+            lspconfig[server_name].setup(server_opts)
+        end,
+        ["rust_analyzer"] = function()
+            local rt_ok, rust_tools = pcall(require, "rust-tools")
+            if rt_ok then
+                rust_tools.setup({
+                    server = {
+                        capabilities = capabilities,
+                    },
+                })
+            else
+                lspconfig.rust_analyzer.setup({
+                    capabilities = capabilities,
+                })
+            end
+        end,
+    },
 })
 
 -- Global mappings.
@@ -77,7 +89,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
         vim.keymap.set("n", "<Leader>wa", vim.lsp.buf.add_workspace_folder, opts)
         vim.keymap.set("n", "<Leader>wr", vim.lsp.buf.remove_workspace_folder, opts)
         vim.keymap.set("n", "<Leader>wl", function()
-            print(vim.inspect(vim.lsp.buf.list_workLeader_folders()))
+            print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
         end, opts)
         vim.keymap.set("n", "<Leader>D", vim.lsp.buf.type_definition, opts)
         vim.keymap.set("n", "<Leader>rn", vim.lsp.buf.rename, opts)
