@@ -8,28 +8,8 @@ You also have the added benefit of becoming a true Vim chad once you start using
 
 # Installation
 
-##### Arch Linux
-
 ```bash
-sudo pacman -S git neovim make unzip gcc npm
-```
-
-##### Debian/Ubuntu
-
-```bash
-sudo apt install git neovim make unzip gcc npm
-```
-
-##### Fedora/RHEL
-
-```bash
-sudo dnf install git neovim make unzip gcc npm
-```
-
-##### Clone Repository
-
-```bash
-git clone https://github.com/arkorty/Neolite.git ~/.config/nvim
+curl -sL https://raw.githubusercontent.com/arkorty/Neolite/dev/install | sh
 ```
 
 # License
