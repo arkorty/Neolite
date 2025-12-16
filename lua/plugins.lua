@@ -110,6 +110,7 @@ local plugins = {
     { "williamboman/mason-lspconfig.nvim" },
     { "neovim/nvim-lspconfig" },
     --{ "jose-elias-alvarez/null-ls.nvim" },
+    { "nvimtools/none-ls.nvim" },
     { "L3MON4D3/LuaSnip" },
     { "rafamadriz/friendly-snippets" },
     { "hrsh7th/nvim-cmp" },
@@ -137,6 +138,9 @@ local plugins = {
             { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
         },
     },
+
+    -- Language Support
+    { "https://github.com/ray-x/go.nvim" },
 }
 
 -- options

@@ -1,4 +1,4 @@
-local ok, null_ls = pcall(require, "null-ls")
+local ok, null_ls = pcall(require, "none-ls")
 if not ok then
     return
 end
@@ -25,7 +25,7 @@ null_ls.setup({
                     vim.lsp.buf.format({
                         bufnr = bufnr,
                         filter = function()
-                            return client.name == "null-ls"
+                            return client.name == "none-ls"
                         end,
                     })
                 end,
