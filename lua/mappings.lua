@@ -36,6 +36,11 @@ if telescope_status_ok then
     keymap("n", "<Leader>tt", telescope.treesitter, {})
 end
 
+-- Format buffer content
+keymap('n', '<leader>F', function()
+    vim.lsp.buf.format({ async = true })
+end, { desc = "LSP: Format current buffer" })
+
 -- Lsp controls
 keymap("n", "<Leader>ls", ":LspStart<CR>", opts)
 keymap("n", "<Leader>lS", ":LspStop<CR>", opts)

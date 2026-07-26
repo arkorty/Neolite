@@ -126,7 +126,6 @@ local plugins = {
 
     -- Misc
     { "norcalli/nvim-colorizer.lua" },
-    { "github/copilot.vim" },
     { "echasnovski/mini.align", config = true },
 
     -- Telescope
